@@ -1,0 +1,49 @@
+
+ 
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+
+
+
+    <meta charset="UTF-8">
+   
+  </head>
+  <body>
+   
+    
+    <br/><br/>
+    <div class="container" style="float:center">
+     <h1>Employee List</h1>
+      <table border="1">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Desig</th>
+          <th>Contact</th>
+          <th></th>
+          
+          
+        </tr>
+        
+        <tr th:each="employee : ${emplist}">
+            	<td th:text="${employee.id}">id</td>
+                <td th:text="${employee.name}">name</td>
+                <td th:text="${employee.city}">city</td>
+                <td th:text="${employee.desig}">desig</td>
+                <td th:text="${employee.contact}">contact</td>
+                <td>
+                	<a th:href="@{'/edit/' + ${employee.id}}">Edit</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/deleteEmp/' + ${employee.id}}">Delete</a>
+                </td>
+            </tr>
+      
+      </table>
+      <a href="/homePage">Back</a>
+    </div>
+  </body>
+  
+</html>
